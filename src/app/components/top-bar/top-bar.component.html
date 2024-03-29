@@ -1,0 +1,20 @@
+<div class="top">
+    <div>
+        <p class="logo">I N D I R E</p>
+    </div>
+    <div>
+        <p>
+            <input type="search" placeholder="Búsqueda">
+        </p>
+    </div>
+    <div>
+        <p>
+            <input type="button" [value]="textoDeBoton" (click)="cambiarFormulario()">
+        </p>
+    </div>
+
+</div>
+
+@if(formularioAbierto){
+    <login></login>
+}
