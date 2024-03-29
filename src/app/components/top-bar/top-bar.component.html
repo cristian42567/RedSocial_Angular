@@ -7,14 +7,16 @@
             <input type="search" placeholder="Búsqueda">
         </p>
     </div>
-    <div>
-        <p>
+    <div class="iniciosSesion">
+        <p>  
             <input type="button" [value]="textoDeBoton" (click)="cambiarFormulario()">
+            |
+            <input type="button" [value]="textoDeBotonDos" (click)="cambiarFormulario()">
         </p>
     </div>
 
 </div>
 
 @if(formularioAbierto){
-    <login></login>
+<login></login>
 }
