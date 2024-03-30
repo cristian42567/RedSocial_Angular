@@ -27,7 +27,6 @@
     margin-right: 75px;
     cursor: default;
     color: white;
-
 }
 
 
@@ -39,6 +38,7 @@
     font-size: smaller;
     color: white;
     font-weight: 600;
+    margin: 10px;
 }
 
 input[type=search] {
