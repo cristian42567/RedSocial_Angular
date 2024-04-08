@@ -19,10 +19,4 @@ export class TopBarComponent {
 
   textoDeBotonDos = "únete a I N D I R E"
 
-  formularioAbiertoDos: boolean = false;
-
-  cambiarFormularioDos(){
-    this.formularioAbiertoDos =! this.formularioAbiertoDos;
-  }
-
 }

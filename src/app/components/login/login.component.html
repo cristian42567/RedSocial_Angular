@@ -1,20 +1,20 @@
 <div class="fondo">
     @if(!showingRegisterForm){
-    <form class="caja" (submit.prevent)="login()">
+    <form class="caja" (submit)="login()" #formulario="ngForm">
         <div class="cabecera">
             <p class="presentacion">Inicia sesión en tu cuenta de I N D I R E</p>
             <p class="separacion">|</p>
             <p class="cerrar">X</p>
         </div>
         <p>Nombre de usuario</p>
-        <input type="text" placeholder="Nombre de usuario">
+        <input type="text" placeholder="Nombre de usuario" [(ngModel)]="usuario.usuario" name="userName">
         <p>Contraseña</p>
-        <input type="password" placeholder="Contraseña">
+        <input type="password" placeholder="Contraseña" [(ngModel)]="usuario.contrasena" name="password">
         <button>Inicia sesión</button>
         <p class="registerText" (click)="toggleForm()">¿No tienes una cuenta? Pulsa aquí para registrarte.</p>
     </form>
     }@else {
-    <form class="caja" (submit.prevent)="registro()">
+    <form class="caja" (submit)="registro()">
         <div class="cabecera">
             <p class="presentacion">Crea una cuenta en I N D I R E</p>
             <p class="separacion">|</p>
