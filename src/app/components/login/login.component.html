@@ -1,4 +1,5 @@
 <div class="fondo">
+    @if(!showingRegisterForm){
     <form class="caja" (submit.prevent)="login()">
         <div class="cabecera">
             <p class="presentacion">Inicia sesión en tu cuenta de I N D I R E</p>
@@ -10,5 +11,23 @@
         <p>Contraseña</p>
         <input type="password" placeholder="Contraseña">
         <button>Inicia sesión</button>
+        <p class="registerText" (click)="toggleForm()">¿No tienes una cuenta? Pulsa aquí para registrarte.</p>
     </form>
+    }@else {
+    <form class="caja" (submit.prevent)="registro()">
+        <div class="cabecera">
+            <p class="presentacion">Crea una cuenta en I N D I R E</p>
+            <p class="separacion">|</p>
+            <p class="cerrar">X</p>
+        </div>
+        <p>Nombre de usuario</p>
+        <input type="text" placeholder="Nombre de usuario">
+        <p>Contraseña</p>
+        <input type="password" placeholder="Contraseña">
+        <p>Repetir contraseña</p>
+        <input type="password" placeholder="Repetir contraseña">
+        <button>Crear cuenta</button>
+        <p class="registerText" (click)="toggleForm()">¿Ya tienes una cuenta? Haz click para iniciar sesión.</p>
+    </form>
+    }
 </div>

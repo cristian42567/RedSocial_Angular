@@ -8,7 +8,17 @@ import { Component } from '@angular/core';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  login(){
-    
+  showingRegisterForm: boolean = false;
+
+  login() {
+
+  }
+
+  registro(){
+     
+  }
+
+  toggleForm() {
+    this.showingRegisterForm = !this.showingRegisterForm;
   }
 }
