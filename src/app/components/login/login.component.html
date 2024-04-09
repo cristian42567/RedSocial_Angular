@@ -7,25 +7,25 @@
             <p class="cerrar">X</p>
         </div>
         <p>Nombre de usuario</p>
-        <input type="text" placeholder="Nombre de usuario" [(ngModel)]="usuario.usuario" name="userName">
+        <input type="text" required placeholder="Nombre de usuario" [(ngModel)]="usuario.usuario" name="userName">
         <p>Contraseña</p>
-        <input type="password" placeholder="Contraseña" [(ngModel)]="usuario.contrasena" name="password">
+        <input type="password" required placeholder="Contraseña" [(ngModel)]="usuario.contrasena" name="password">
         <button>Inicia sesión</button>
         <p class="registerText" (click)="toggleForm()">¿No tienes una cuenta? Pulsa aquí para registrarte.</p>
     </form>
     }@else {
-    <form class="caja" (submit)="registro()">
+    <form class="caja" (submit)="registro()" #formulario2="ngForm">
         <div class="cabecera">
             <p class="presentacion">Crea una cuenta en I N D I R E</p>
             <p class="separacion">|</p>
             <p class="cerrar">X</p>
         </div>
         <p>Nombre de usuario</p>
-        <input type="text" placeholder="Nombre de usuario">
+        <input type="text" placeholder="Nombre de usuario" required name="usuario" [(ngModel)]="registerData.username">
         <p>Contraseña</p>
-        <input type="password" placeholder="Contraseña">
+        <input type="password" minlength="7" placeholder="Contraseña" required name="password" [(ngModel)]="registerData.password">
         <p>Repetir contraseña</p>
-        <input type="password" placeholder="Repetir contraseña">
+        <input type="password" minlength="7" placeholder="Repetir contraseña" required name="confirmPassword" [(ngModel)]="registerData.confirmPassword">
         <button>Crear cuenta</button>
         <p class="registerText" (click)="toggleForm()">¿Ya tienes una cuenta? Haz click para iniciar sesión.</p>
     </form>

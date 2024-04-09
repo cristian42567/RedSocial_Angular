@@ -13,8 +13,14 @@ export class TopBarComponent {
 
   formularioAbierto: boolean = false;
 
-  cambiarFormulario(){
+  cambiarFormulario(seHaLogueado: boolean = false){
+    this.textoDeBoton = "Iniciar sesión"
+    
     this.formularioAbierto = !this.formularioAbierto;
+
+    if(seHaLogueado){
+      this.textoDeBoton = "Cerrar sesión"
+    }
   }
 
   textoDeBotonDos = "únete a I N D I R E"
