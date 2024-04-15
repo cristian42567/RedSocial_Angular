@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { DatosLogin } from '../../interfaces/datos-login';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegistroData } from '../../interfaces/registro-data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -18,6 +19,8 @@ export class LoginComponent {
 
   @Output() usuarioLogueado: EventEmitter<void> = new EventEmitter<void>();
 
+  constructor(private router: Router){}
+
 
   usuario: DatosLogin = {
     usuario: "",
@@ -33,6 +36,8 @@ export class LoginComponent {
   login() {
     if(this.usuario.usuario == "cristian" && this.usuario.contrasena == "cristian"){
        this.usuarioLogueado.emit();
+
+       this.router.navigate(["/posts"])
     }
 
     this.usuario.usuario = ""
