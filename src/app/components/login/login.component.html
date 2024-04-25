@@ -4,7 +4,10 @@
         <div class="cabecera">
             <p class="presentacion">Inicia sesión en tu cuenta de I N D I R E</p>
             <p class="separacion">|</p>
-            <p class="cerrar">X</p>
+            <p class="cerrar">
+                <span class="material-symbols-rounded" (click)="cerrarForm()">
+                close
+                </span></p>
         </div>
         <p>Nombre de usuario</p>
         <input type="text" placeholder="Nombre de usuario" formControlName="usuario">
@@ -18,7 +21,10 @@
         <div class="cabecera">
             <p class="presentacion">Crea una cuenta en I N D I R E</p>
             <p class="separacion">|</p>
-            <p class="cerrar">X</p>
+            <p class="cerrar">
+                <span class="material-symbols-rounded" (click)="cerrarForm()">
+                close
+                </span></p>
         </div>
         <p>Nombre de usuario</p>
         <input type="text" placeholder="Nombre de usuario" formControlName="usuario">
@@ -30,4 +36,4 @@
         <p class="registerText" (click)="toggleForm()">¿Ya tienes una cuenta? Haz click para iniciar sesión.</p>
     </form>
     }
-</div>
+</div> 

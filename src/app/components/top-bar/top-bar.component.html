@@ -18,5 +18,5 @@
 </div>
 
 @if(formularioAbierto){
-<login (usuarioLogueado)="cambiarFormulario(true)"></login>
+<login (usuarioLogueado)="cambiarFormulario(true)" (cerrarFormulario)="cambiarFormulario()"></login>
 } 

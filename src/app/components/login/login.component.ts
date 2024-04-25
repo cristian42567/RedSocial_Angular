@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit{
   showingRegisterForm: boolean = false;
 
   @Output() usuarioLogueado: EventEmitter<void> = new EventEmitter<void>();
+  @Output() cerrarFormulario: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(
     private router: Router,
@@ -109,4 +110,10 @@ export class LoginComponent implements OnInit{
   toggleForm() {
     this.showingRegisterForm = !this.showingRegisterForm;
   }
+
+  cerrarForm(){
+    this.cerrarFormulario.emit();
+  }
+
+
 }
