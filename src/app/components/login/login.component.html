@@ -1,32 +1,32 @@
 <div class="fondo">
     @if(!showingRegisterForm){
-    <form class="caja" (submit)="login()" #formulario="ngForm">
+    <form class="caja" (submit)="login()" [formGroup]="formularioLogin">
         <div class="cabecera">
             <p class="presentacion">Inicia sesión en tu cuenta de I N D I R E</p>
             <p class="separacion">|</p>
             <p class="cerrar">X</p>
         </div>
         <p>Nombre de usuario</p>
-        <input type="text" required placeholder="Nombre de usuario" [(ngModel)]="usuario.usuario" name="userName">
+        <input type="text" placeholder="Nombre de usuario" formControlName="usuario">
         <p>Contraseña</p>
-        <input type="password" required placeholder="Contraseña" [(ngModel)]="usuario.contrasena" name="password">
-        <button>Inicia sesión</button>
+        <input type="password" placeholder="Contraseña" formControlName="contraseña">
+        <button [disabled]="formularioLogin.invalid">Inicia sesión</button>
         <p class="registerText" (click)="toggleForm()">¿No tienes una cuenta? Pulsa aquí para registrarte.</p>
     </form>
     }@else {
-    <form class="caja" (submit)="registro()" #formulario2="ngForm">
+    <form class="caja" (submit)="registro()" [formGroup]="formularioRegistro">
         <div class="cabecera">
             <p class="presentacion">Crea una cuenta en I N D I R E</p>
             <p class="separacion">|</p>
             <p class="cerrar">X</p>
         </div>
         <p>Nombre de usuario</p>
-        <input type="text" placeholder="Nombre de usuario" required name="usuario" [(ngModel)]="registerData.username">
+        <input type="text" placeholder="Nombre de usuario" formControlName="usuario">
         <p>Contraseña</p>
-        <input type="password" minlength="7" placeholder="Contraseña" required name="password" [(ngModel)]="registerData.password">
+        <input type="password" placeholder="Contraseña" formControlName="contraseña">
         <p>Repetir contraseña</p>
-        <input type="password" minlength="7" placeholder="Repetir contraseña" required name="confirmPassword" [(ngModel)]="registerData.confirmPassword">
-        <button>Crear cuenta</button>
+        <input type="password" placeholder="Repetir contraseña" formControlName="confirmarContraseña">
+        <button [disabled]="formularioRegistro.invalid">Crear cuenta</button>
         <p class="registerText" (click)="toggleForm()">¿Ya tienes una cuenta? Haz click para iniciar sesión.</p>
     </form>
     }
