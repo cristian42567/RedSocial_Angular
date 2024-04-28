@@ -1,1 +1,28 @@
-<p>posts works!</p>
+<div>
+    <div class="grid">
+        @for (post of posts; track $index) {
+        <div class="post">
+            <img [src]="post.img" alt="Foto del post">
+        </div>
+        }
+    </div>
+
+    <p class="añadirPost" (click)="mostrar()">
+        +
+    </p>
+
+    @if(mostrarFormulario){
+        <div class="fondo">
+            <form (ngSubmit)="subirPost()">
+                <div>
+                    <p class="iconoDeCierre">
+                        <span class="material-symbols-rounded" (click)="ocultar()">
+                        close
+                        </span></p>
+                </div>
+                <input type="text" placeholder="img">
+                <input type="submit" value="Subir Post">
+            </form>
+        </div>
+    }
+</div>

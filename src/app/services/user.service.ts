@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserService implements OnInit{
 
   constructor() { }
 
@@ -19,6 +19,17 @@ export class UserService {
 
   }
 
+  ngOnInit(): void{
+    let usuarios = localStorage.getItem("users")
+
+    if(usuarios != null){
+      const arrayUsers: Array<User>  = JSON.parse(usuarios).usuariosJSON
+
+      this.usuarios = arrayUsers
+    }
+  }
+
+  //Simulación de la base de datos
   usuarios: Array<User> = [
 
     {
@@ -70,4 +81,44 @@ export class UserService {
       }
       return false
   }
-}
+
+  register(nombreDeUsuario: string, contraseña: string, confirmarContraseña: string){
+
+    if(contraseña != confirmarContraseña){
+      return false
+    }
+
+    let coinciden = false
+
+      this.usuarios.forEach(usuario => {
+        if(usuario.username == nombreDeUsuario){
+          coinciden = true
+        }
+      });
+
+      if(coinciden){
+        return false
+      }
+      
+      const nuevoUsuario: User = {
+        username: nombreDeUsuario,
+        nombre:"",
+        apellido:"",
+        email: "",
+        password: contraseña
+      }
+
+      this.usuarios.push(nuevoUsuario)
+
+      const objetoUsuarios = {
+        usuariosJSON: this.usuarios
+      }
+
+      localStorage.setItem("users", JSON.stringify(objetoUsuarios))
+
+      return true
+    }
+    
+  }
+
+

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginComponent } from "../login/login.component";
 import { RouterLink } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
     selector: 'topbar',
@@ -10,6 +11,11 @@ import { RouterLink } from '@angular/router';
     imports: [LoginComponent, RouterLink]
 })
 export class TopBarComponent {
+
+  constructor(
+    private service: UserService
+  ){}
+
   textoDeBoton = "Iniciar sesión"
 
   formularioAbierto: boolean = false;
@@ -20,8 +26,10 @@ export class TopBarComponent {
     this.formularioAbierto = !this.formularioAbierto;
 
     if(seHaLogueado){
-      this.textoDeBoton = "Cerrar sesión"
+      this.textoDeBoton = "Cerrar sesión " + this.service.userData.username
     }
+
+    this.service.login
   }
 
   textoDeBotonDos = "únete a I N D I R E"

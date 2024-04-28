@@ -94,8 +94,10 @@ export class LoginComponent implements OnInit{
     const contraseña = this.formularioRegistro.get("contraseña")?.value
     const confirmarContraseña = this.formularioRegistro.get("confirmarContraseña")?.value
 
-    if(contraseña != confirmarContraseña){
-      alert("Las contraseñas no coinciden")
+    const registroConExito = this.servicio.register(nombreDeUsuario, contraseña, confirmarContraseña)
+
+    if(!registroConExito){
+      alert("Las contraseñas no coinciden o ya existe el usuario")
     }else{
       this.formularioLogin.get("usuario")?.setValue(nombreDeUsuario)
       this.formularioLogin.get("contraseña")?.setValue(contraseña)
