@@ -1,8 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { DatosLogin } from '../../interfaces/datos-login';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import { RegistroData } from '../../interfaces/registro-data';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'login',
@@ -22,7 +21,8 @@ export class LoginComponent implements OnInit{
 
   constructor(
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private servicio: UserService
   ){}
     
 
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit{
       ]],
       contraseña: ["", [
         Validators.required,
-        Validators.minLength(7),
+        Validators.minLength(5),
         Validators.maxLength(14)
       ]]
     })
@@ -72,13 +72,16 @@ export class LoginComponent implements OnInit{
 
 
   login() {
-    const nombreDeUsuario = this.formularioLogin.get("usuario")?.value
-    const contraseña = this.formularioLogin.get("contraseña")?.value
+    
+    let loginCorrecto = this.servicio.login(this.formularioLogin.get("usuario")?.value, 
+    this.formularioLogin.get("contraseña")?.value)
 
-    if(nombreDeUsuario == "admin" && contraseña == "admin"){
-       this.usuarioLogueado.emit();
+    if(loginCorrecto){
+      
+      this.usuarioLogueado.emit();
 
-       this.router.navigate(["/posts"])
+      this.router.navigate(["/posts"])
+
     }
 
     this.formularioLogin.get("usuario")?.setValue("")
