@@ -1,5 +1,6 @@
 <div class="top">
-    <div class="logo" routerLink ="">
+    <p class="logo" routerLink="posts">posts</p>
+    <div class="logo" routerLink="">
         <p>I N D I R E</p>
     </div>
     <div>
@@ -8,10 +9,10 @@
         </p>
     </div>
     <div class="iniciosSesion">
-        <p>  
+        <p>
             <input type="button" [value]="textoDeBoton" (click)="cambiarFormulario()">
             |
-            <input type="button" [value]="textoDeBotonDos" >
+            <input type="button" [value]="textoDeBotonDos">
         </p>
     </div>
 
@@ -19,4 +20,4 @@
 
 @if(formularioAbierto){
 <login (usuarioLogueado)="cambiarFormulario(true)" (cerrarFormulario)="cambiarFormulario()"></login>
-} 
+}

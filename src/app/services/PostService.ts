@@ -1,21 +1,35 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Post } from '../interfaces/post';
 
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
-export class PostService implements OnInit {
-    hola() {
-      throw new Error('Method not implemented.');
+export class PostService {
+
+  constructor() { }
+
+  inicio(): void {
+    const postsArray = localStorage.getItem("posts")
+
+    if (postsArray != null) {
+      const arrayPosts: Array<Post> = JSON.parse(postsArray).posts
+
+      this.posts = arrayPosts
+
+      console.log(this.posts)
     }
-    inicio: any;
+  }
 
-    constructor() { }
+  posts: Array<Post> = [];
 
-    posts: Array<Post> = [];
+  crearPost(post: Post) {
+    this.posts.push(post)
 
-    ngOnInit(): void {
+    const postASubir = {
+      posts: this.posts
     }
 
+    localStorage.setItem("posts", JSON.stringify(postASubir))
+  }
 }

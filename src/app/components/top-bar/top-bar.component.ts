@@ -27,11 +27,13 @@ export class TopBarComponent {
 
     if(seHaLogueado){
       this.textoDeBoton = "Cerrar sesión " + this.service.userData.username
+    }else{
+      this.service.closeSesion()
     }
 
     this.service.login
   }
 
   textoDeBotonDos = "únete a I N D I R E"
-
 }
+

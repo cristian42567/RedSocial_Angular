@@ -8,6 +8,8 @@ export class UserService implements OnInit{
 
   constructor() { }
 
+  estaLogueado: boolean = false
+
   //Información del usuario logueado
   userData: User = {
 
@@ -66,6 +68,8 @@ export class UserService implements OnInit{
         if(contraseña == this.usuarios[i].password){
           this.userData = this.usuarios[i]
 
+          this.estaLogueado = true
+
           return true
 
         } 
@@ -119,6 +123,10 @@ export class UserService implements OnInit{
       return true
     }
     
+
+    closeSesion(){
+      this.estaLogueado = false;
+    }
   }
 
 

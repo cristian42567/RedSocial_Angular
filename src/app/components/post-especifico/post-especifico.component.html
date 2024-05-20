@@ -1,0 +1,11 @@
+<div class="contenedor">
+    <div class="card">
+        <img [src]="post.img">
+
+        @if (tieneLike()){
+        <p (click)="quitarLike()" class="rojo">♥</p>
+        }@else{
+        <p (click)="darLike()">♥</p>
+        }
+    </div>
+</div>

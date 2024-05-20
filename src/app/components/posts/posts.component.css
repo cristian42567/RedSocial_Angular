@@ -1,4 +1,4 @@
-.grid{
+.grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
@@ -6,19 +6,20 @@
     margin-top: 50px;
 }
 
-.post{
+.post {
     width: 250px;
     padding: 25px;
     border: 2px gray solid;
     border-radius: 15px;
 }
 
-img{
+img {
     width: 100%;
 }
 
-.añadirPost{
+.añadirPost {
     padding: 10px 20px;
+    width: 25px;
     text-align: center;
     border-radius: 5px;
     border: 2px black solid;
@@ -28,6 +29,7 @@ img{
     right: 15px;
     font-size: xx-large;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .fondo {
@@ -64,7 +66,7 @@ form input :nth-child(2) {
     width: 96.5%;
 }
 
-.iconoDeCierre{
+.iconoDeCierre {
     position: relative;
     top: -20px;
     right: 0;

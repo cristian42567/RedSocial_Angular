@@ -1,28 +1,29 @@
 <div>
     <div class="grid">
         @for (post of posts; track $index) {
-        <div class="post">
+        <div class="post" routerLink="../postEspecifico/{{post.id}}">
             <img [src]="post.img" alt="Foto del post">
         </div>
         }
     </div>
-
+    
     <p class="añadirPost" (click)="mostrar()">
         +
     </p>
 
     @if(mostrarFormulario){
-        <div class="fondo">
-            <form (ngSubmit)="subirPost()">
-                <div>
-                    <p class="iconoDeCierre">
-                        <span class="material-symbols-rounded" (click)="ocultar()">
-                        close
-                        </span></p>
-                </div>
-                <input type="text" placeholder="img">
-                <input type="submit" value="Subir Post">
-            </form>
-        </div>
+    <div class="fondo">
+        <form (ngSubmit)="subirPost()" [formGroup]="formularioRegistroPost">
+            <div class="iconoDeCierre" (click)="ocultar()">
+                <span class="material-symbols-rounded">
+                    close
+                </span>
+            </div>
+            <input type="text" placeholder="img" formControlName="img">
+            <input type="submit" value="Subir Post" [disabled]="formularioRegistroPost.invalid">
+        </form>
+    </div>
+
+    {{formularioRegistroPost.invalid}}
     }
 </div>
