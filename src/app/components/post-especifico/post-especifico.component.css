@@ -27,3 +27,16 @@ img {
     justify-content: center;
     align-items: center;
 }
+
+.comentarioContainer{
+    margin-top: 10px;
+}
+
+.comentarioContainer p{
+    font-size: medium;
+}
+
+input{
+    width: 100%;
+    margin-top: 10px;
+}

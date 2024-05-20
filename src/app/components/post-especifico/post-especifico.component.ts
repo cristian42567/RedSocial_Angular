@@ -3,11 +3,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '../../services/post.service';
 import { Post } from '../../interfaces/post';
 import { UserService } from '../../services/user.service';
+import { FormsModule, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-post-especifico',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './post-especifico.component.html',
   styleUrl: './post-especifico.component.css'
 })
@@ -16,6 +17,8 @@ export class PostEspecificoComponent implements OnInit {
 
   id: string = ""
   post: Post = {}
+
+  comentario = ""
 
   constructor(
     private route: ActivatedRoute,
@@ -54,5 +57,21 @@ export class PostEspecificoComponent implements OnInit {
 
   quitarLike() {
     this.service.quitarLike(this.id, this.userService.userData)
+  }
+
+  anadirComentario(){
+    let username = ""
+
+    if(this.userService.userData.username != ""){
+      username = this.userService.userData.username
+    }else{
+      username = "Anónimo"
+    }
+
+    this.comentario = `${username}: ${this.comentario}`
+
+    this.service.anadirComentario(this.id, this.comentario)
+
+    this.comentario = ""
   }
 }

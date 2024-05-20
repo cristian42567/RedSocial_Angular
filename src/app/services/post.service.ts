@@ -73,6 +73,15 @@ export class PostService {
 
     localStorage.setItem("posts", JSON.stringify(postAsubir))
   }
+
+  
+  anadirComentario(id: string, comentario:string){
+    const post = this.obtenerPostPorID(id)
+
+    post.comentarios?.push(comentario)
+
+    this.guardarPost()
+  }
 }
 
 

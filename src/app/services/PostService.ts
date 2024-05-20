@@ -32,4 +32,5 @@ export class PostService {
 
     localStorage.setItem("posts", JSON.stringify(postASubir))
   }
+
 }
